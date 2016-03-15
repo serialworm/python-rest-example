@@ -11,11 +11,10 @@ class TestFeed(unittest.TestCase):
 
     def test_fetch(self):
         html = self.feed.fetch()
-        self.assertIsInstance(html, str)
         self.assertTrue(html)
 
     def test_parse(self):
-        html = open('test/static/index.html', encoding='utf-8')
+        html = open('test/static/index.html', 'r')
         payload = self.feed.parse(html)
         html.close()
         self.assertIsInstance(payload, list)

@@ -6,17 +6,25 @@ class TestFeed(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        cls.feed = Feed()
+        url = 'http://www.metacritic.com/game/playstation-3'
+        cls.feed = Feed(url=url)
 
     def test_fetch(self):
         html = self.feed.fetch()
         self.assertIsInstance(html, str)
+        self.assertTrue(html)
 
     def test_parse(self):
         html = open('test/static/index.html', encoding='utf-8')
         payload = self.feed.parse(html)
         html.close()
         self.assertIsInstance(payload, list)
+        self.assertTrue(payload)
+
+    def test_get(self):
+        feed = self.feed.get()
+        self.assertIsInstance(feed, list)
+        self.assertTrue(feed)
 
     @classmethod
     def tearDownClass(cls):

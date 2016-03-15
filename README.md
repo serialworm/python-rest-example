@@ -19,4 +19,5 @@ $ python app.py
 Access the API at:
 
 [http://localhost:5000/games](http://localhost:5000/games)
+
 [http://localhost:5000/Yakuza%205](http://localhost:5000/Yakuza%205)

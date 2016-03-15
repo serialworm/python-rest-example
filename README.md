@@ -1,23 +1,22 @@
 # python-rest-example
 
-This example contains a feed class to retrieve and parse the html from the Metacritic ps3 page and a REST api component to access the data.
+This example contains a feed class to retrieve and parse the html from the Metacritic ps3 page and a REST API component to access the data.
 ## Setup
 ```shell
 $ pip install .
 ```
 
-## Running the tests for feed / api
+## Running the tests for feed / API
 ```shell
 $ python -m unittest discover
 ```
-## Running the REST api
+## Running the REST API
 
 ```shell
 $ python app.py
 ```
 
-Access it in a browser at:
+Access the API at:
 
-http://localhost:5000/games
-
-http://localhost:5000/Yakuza%205
+[http://localhost:5000/games](http://localhost:5000/games)
+[http://localhost:5000/Yakuza%205](http://localhost:5000/Yakuza%205)

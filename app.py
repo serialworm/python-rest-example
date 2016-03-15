@@ -1,4 +1,5 @@
-from flask import Flask, json, jsonify
+import json
+from flask import Flask, jsonify
 from feed import Feed
 
 app = Flask(__name__)
@@ -29,13 +30,15 @@ def games(title=None):
     returns json or 404 if not found
     '''
     feed = Feed(url=url)
-    data = feed.get()
+
     if title is None:
-        return json.dumps(data)
+        return app.response_class(feed.get(), content_type='application/json')
     else:
+        data = json.loads(feed.get())
         for item in data:
             if item['title'] == title:
-                return json.dumps(item)
+                return app.response_class(json.dumps(item),
+                                          content_type='application/json')
         return not_found()
 
 if __name__ == '__main__':

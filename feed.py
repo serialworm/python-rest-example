@@ -50,5 +50,5 @@ class Feed:
         self._feed = self.parse(html)
 
     def get(self):
-        '''Get the feed as a list'''
-        return self._feed
+        '''Get the feed as JSON'''
+        return json.dumps(self._feed)

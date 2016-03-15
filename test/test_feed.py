@@ -22,7 +22,7 @@ class TestFeed(unittest.TestCase):
 
     def test_get(self):
         feed = self.feed.get()
-        self.assertIsInstance(feed, list)
+        self.assertIsInstance(feed, str)
         self.assertTrue(feed)
 
     @classmethod

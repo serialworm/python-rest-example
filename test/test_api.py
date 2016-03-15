@@ -1,6 +1,6 @@
 from app import app
 import unittest
-from flask import json
+import json
 
 
 class TestApi(unittest.TestCase):
@@ -17,7 +17,11 @@ class TestApi(unittest.TestCase):
         self.app = app.test_client()
         self.app.testing = True
         res = self.app.get('/games')
-        items = json.loads(res.data)
+        if isinstance(res.data, bytes):
+            data = res.data.decode('utf-8')
+        else:
+            data = res.data
+        items = json.loads(data)
         # Set the first item in the response for testing the second endpoint
         self.single_item = items.pop()
 
